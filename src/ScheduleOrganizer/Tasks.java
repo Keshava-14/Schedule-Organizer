@@ -98,16 +98,25 @@ public class Tasks {
     }
     
     public void display(){
+        if(tasks.isEmpty()){
+            System.out.println("No tasks Available");
+        }
+        
         for(Task obj : tasks){
             System.out.println(obj);
         }
     }
     
     public void viewTasks(String priority){
+        int count = 0;
         for(Task obj : tasks){
             if(obj.getPriority().equals(priority)){
+                count++;
                 System.out.println(obj);
             }
+        }
+        if(count == 0){
+            System.out.println("No tasks Available");
         }
     }
 }

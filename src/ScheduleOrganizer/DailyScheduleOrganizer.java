@@ -18,15 +18,17 @@ public class DailyScheduleOrganizer {
                                Enter 4 to view all tasks
                                Enter 5 to view based on priority
                                Enter 6 to change task status
-                               Enter your choice""");
+                               Enter 7 to exit
+                               Enter your choice : """);
             int choice = in.nextInt();
+            in.nextLine();
             switch(choice){
                 case 1 -> {
                     System.out.print("Enter task description : ");
                     String desc = in.nextLine();
                     System.out.print("Enter Start Time : ");
                     String stTime = in.nextLine();
-                    System.out.print("Enter End TIme");
+                    System.out.print("Enter End Time : ");
                     String endTime = in.nextLine();
                     System.out.print("Enter Priority Level : ");
                     String priority = in.nextLine();
@@ -63,21 +65,25 @@ public class DailyScheduleOrganizer {
                 }
                 case 5 -> {
                     System.out.print("Enter Priority : ");
-                    String priority = in.nextLine();
+                    String priority = in.next();
                     tasks.viewTasks(priority);
                 }
                 case 6 -> {
                     System.out.print("Enter task description : ");
                     String desc = in.nextLine();
                     int status = tasks.changeStatus(desc);
-                switch (status) {
-                    case 1 ->
-                        System.out.println("Task marked as Completed");
-                    case 0 ->
-                        System.out.println("Task marked as not completed");
-                    default ->
-                        System.out.println("Task doesn't exist");
+                    switch (status) {
+                        case 1 ->
+                            System.out.println("Task marked as Completed");
+                        case 0 ->
+                            System.out.println("Task marked as not completed");
+                        default ->
+                            System.out.println("Task doesn't exist");
+                    }
                 }
+                case 7 -> {
+                    System.out.println("Program Exited");
+                    return;
                 }
                 default -> {
                     System.out.print("Invalid Option...");
